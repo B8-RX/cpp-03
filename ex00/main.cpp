@@ -10,4 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
 
+int	main(void)
+{
+	ClapTrap	player1("john");
+
+	player1.attack("bob");
+	player1.takeDamage(3);
+	player1.beRepaired(2);
+	return (0);
+}
