@@ -12,12 +12,53 @@
 
 #include "ClapTrap.hpp"
 
+void	test_name(std::string msg) {
+	std::cout << "\n\n=========== " << msg << " ============\n"; 
+}
+
 int	main(void)
 {
-	ClapTrap	player1("john");
+	ClapTrap	clap("john");
+	ClapTrap	trap("doe");
 
-	player1.attack("bob");
-	player1.takeDamage(3);
-	player1.beRepaired(2);
+	test_name("should not repair after taking 42 points of damages, and display '...Cannot repair!'");
+	clap.attack("bob");
+	clap.takeDamage(42);
+	clap.beRepaired(10);
+
+	test_name("should not attack after 10 times, and display '...Cannot attack!'");
+	for (int i = 0; i <= 10; i++)
+		trap.attack("foo");
+	
+	test_name("should not take damage after 10 times, and display the message '...already destroyed!'");
+	for (int i = 0; i <= 10; i++)
+		trap.takeDamage(1);
+
+	test_name("coplien");
+	ClapTrap	a("alpha");
+	ClapTrap	b = a;
+	ClapTrap	c("charlie");
+
+	c = a;
+
+	test_name("c should be 'alpha'");
+	c.attack("bob");
+	
+	b.takeDamage(5);
+	test_name("hit points should be 6.");
+	b.beRepaired(1);
+
+	test_name("hit points should be 9.");
+	a.takeDamage(1);
+	
+
+	test_name("self assignment should not change the object");
+	a = a;
+	a.attack("bob");
+
+	ClapTrap	unknown;
+
+	test_name("should display '...unknown attacks...'");
+	unknown.attack("bar");
 	return (0);
 }

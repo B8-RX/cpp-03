@@ -57,8 +57,9 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << "ClapTrap " << _name << " is already destroyed!\n";
 		return ;
 	}
-	_hitPoints -= (amount > static_cast<unsigned int>(_hitPoints) ? _hitPoints : static_cast<int>(amount);
-	std::cout << "ClapTrap " << _name << " takes "<< amount << " points of damage. Current HP: " << _hitPoints << "\n";
+	int dmg = (amount > static_cast<unsigned int>(_hitPoints) ? _hitPoints : static_cast<int>(amount));
+	_hitPoints -= dmg;
+	std::cout << "ClapTrap " << _name << " takes "<< (dmg == _hitPoints ? dmg : amount) << " points of damage. Current HP: " << _hitPoints << "\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
