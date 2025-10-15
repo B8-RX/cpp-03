@@ -18,8 +18,8 @@ void	test_name(std::string msg) {
 
 int	main(void)
 {
-	ClapTrap	clap("john");
-	ClapTrap	trap("doe");
+	ClapTrap	clap("john doe");
+	ClapTrap	trap("toto");
 
 	test_name("should not repair after taking 42 points of damages, and display '...Cannot repair!'");
 	clap.attack("bob");
