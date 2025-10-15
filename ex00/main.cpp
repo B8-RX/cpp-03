@@ -47,18 +47,20 @@ int	main(void)
 	b.takeDamage(5);
 	test_name("hit points should be 6.");
 	b.beRepaired(1);
+	test_name("hit points should not be on Int overflow");
+	b.beRepaired(2147483647);
 
 	test_name("hit points should be 9.");
 	a.takeDamage(1);
 	
-
-	test_name("self assignment should not change the object");
-	a = a;
-	a.attack("bob");
-
 	ClapTrap	unknown;
 
-	test_name("should display '...unknown attacks...'");
+	test_name("should display '...no_name...'");
 	unknown.attack("bar");
+	unknown.takeDamage(9);
+	unknown.beRepaired(1);
+	unknown.takeDamage(9);
+	unknown.beRepaired(1);
+
 	return (0);
 }
