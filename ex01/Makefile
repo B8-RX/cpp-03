@@ -1,4 +1,4 @@
-SOURCE = main.cpp ClapTrap.cpp 
+SOURCE = main.cpp ClapTrap.cpp ScavTrap.cpp 
 
 OBJECTS = $(SOURCE:.cpp=.o)
 
@@ -6,7 +6,7 @@ CXX = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = aaaaand 
+NAME = serena 
 
 all: $(NAME)
 
