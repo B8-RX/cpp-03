@@ -51,11 +51,11 @@ ClapTrap::~ClapTrap(void) {
 void ClapTrap::attack(const std::string& target) {
 	if (_hitPoints <= 0 || _energyPoints <= 0)
 	{
-		std::cout << "ClapTrap " << _name << " has no hit points or energy left. Cannot attack!\n";
+		std::cout << "ClapTrap " << _name << (_hitPoints <= 0 ? " is already destroyed!" : " has no energy left.") << " Cannot attack!\n";
 		return ;
 	}
 	_energyPoints--;
-	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!\n";
+	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage! Energy left: " << _energyPoints << "\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
@@ -72,7 +72,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 void ClapTrap::beRepaired(unsigned int amount) {
 	if (_hitPoints <= 0 || _energyPoints <= 0)
 	{
-		std::cout << "ClapTrap " << _name << " has no hit points or energy left. Cannot repair!\n";
+		std::cout << "ClapTrap " << _name << (_hitPoints <= 0 ? " is already destroyed!" : " has no energy left.") << " Cannot repair!\n";
 		return ;
 	}
 	_energyPoints--;
@@ -80,5 +80,5 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		_hitPoints = std::numeric_limits<int>::max();
 	else
 		_hitPoints += amount;
-	std::cout << "ClapTrap " << _name << " Repairs itself by " << amount << " hit points. Current HP: " << _hitPoints << "\n";
+	std::cout << "ClapTrap " << _name << " Repairs itself by " << amount << " hit points. Current HP: " << _hitPoints << ". Energy left: " << _energyPoints << "\n";
 }
