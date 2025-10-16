@@ -11,13 +11,20 @@
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap(void) : _name("noName"), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
+ScavTrap::ScavTrap(void) : ClapTrap() {
 	std::cout << "ScavTrap Default constructor called\n";
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const std::string& name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
 	std::cout << "ScavTrap Name constructor called\n";
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) {
@@ -54,9 +61,9 @@ void ScavTrap::attack(const std::string& target) {
 		return ;
 	}
 	_energyPoints--;
-	std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!\n";
+	std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage! Energy left: " << _energyPoints << "\n";
 }
 
 void ScavTrap::guardGate(void) {
-	std::cout << "ScavTrap Gate keeper mode activated\n";
+	std::cout << "ScavTrap is now on [Gate keeper] mode!\n";
 }
