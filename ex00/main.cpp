@@ -62,6 +62,8 @@ int	main(void)
 	unknown.beRepaired(1);
 	unknown.takeDamage(9);
 	unknown.beRepaired(1);
+	
+	test_name("Should call ClapTrap's destructor messages");
 
 	return (0);
 }
