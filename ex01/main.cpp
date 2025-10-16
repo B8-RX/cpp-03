@@ -67,7 +67,7 @@ int	main(void)
 
 	test_name("INHERITANCE");
 	test_name("should display the constructor message of ClapTrap then the ScavTrap one");
-	ScavTrap	x;
+	ScavTrap	x("mum");
 
 	test_name("ScavTrap should be able to use the methods inherited from the base class ClapTrap with the new initialized values");
 	x.attack("bruh");
@@ -76,6 +76,25 @@ int	main(void)
 
 	test_name("ScavTrap should be able to use the guardGate() and informing that he is on Gate keeper mode");
 	x.guardGate();
+
+	test_name("Coplien");
+	test_name("ScavTrap 'y' should be created with Name constructor");
+	ScavTrap	y("dad");
+
+	test_name("ScavTrap 'z' shoud copy 'y' by calling Copy constructor");
+	ScavTrap	z = y;
+	z.attack("villain");
+
+	test_name("ScavTrap 'soso' should call Default constructor and his _name is 'noName'");
+	ScavTrap	soso;
+
+	test_name("ScavTrap 'soso' should call Copy assignment operator constructor and his _name become 'dad'");
+	soso = z;
+	soso.attack("monster");
+
+	test_name("ScavTrap 'soso' should inform beeing on [Gate keeper] mode");
+	soso.guardGate();
+
 
 	test_name("ScavTrap destructor messages should be called before ClapTrap destructor messages");
 	std::cout << "\n";
